@@ -6,14 +6,75 @@
 
 // type Table = HashMap<String, Vec<String>>;
 
+// use std::error::Error;
+// use std::io::{Write, stderr};
+
+// use std::fs;
+// use std::io;
+// use std::path::Path;
+
+// use std::io::{self, BufRead};
+// type GenericError = Box<dyn std::error::Error + Send + Sync + 'static>;
+// type GenericResult<T> = Reulst<T, GenericError>;
+
+
+// fn main() -> Result<(), TideCalcError> {
+//     let tides = calculate_tides()?;
+//     print_tides(tides);
+//     Ok(())
+// }
+// #[derive(Debug, Clone)]
+// pub struct JsonError {
+//     pub message: String,
+//     pub line: usize,
+//     pub column: usize,
+// }
+
 fn main() {
     println!("Hello, world!");
 
-    const THE_USUAL: WeatherReport = WeatherReport::Sunny(72);
+    // fn read_numbers(file: &mut dyn BufRead) -> Result<Vec<i64>, io::Error> {
+    //     let mut numbers = vec![];
+    //     for line_result in file.lines() {
+    //         let line = line_result?;
+    //         numbers.push(line.parse()?);
+    //     }
+    //     Ok(numbers)
+    // }
 
-    let report = get_weather(los_angeles).unwrap_or(THE_USUAL);
+    // fn move_all(src: &Path, dst: &Path) -> io::Result<()> {
+    //     for entry_result in src.read_dir()? {
+    //         let entry = entry_result?;
+    //         let dst_file = dst.join(entry.file_name());
+    //         fs::rename(entry.path(), dst_file)?;
+    //     }
+    //     Ok(())
+    // }
 
-    display_weather(los_angeles, &report);
+    // let weather = get_weather(hometown).ok()?;
+
+    // let weather = get_weather(hometown)?;
+
+    // let weather = match get_weather(hometown) {
+    //     Ok(success_value) => success_value,
+    //     Err(err) => return Err(err)
+    // };
+
+    // fn print_error(mut err: &dyn Error) {
+    //     let _ = writeln!(stderr(), "error: {}", err);
+    //     while let Some(source) = err.source() {
+    //         let _ = writeln!(stderr(), "caused by: {}", source);
+    //         err = source;
+    //     }
+    // }
+
+    // const THE_USUAL: WeatherReport = WeatherReport::Sunny(72);
+
+    // let report = get_weather(los_angeles).unwrap_or(THE_USUAL);
+
+    // display_weather(los_angeles, &report);
+
+    // println!("error querying the weather: {}", err);
 
     // match get_weather(hometown) {
     //     Ok(report) => {
