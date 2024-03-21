@@ -1,7 +1,210 @@
 // use std::rc::Rc;
+// use std::collections::HashMap;
+
+// use std::io;
+// use std::cmp::Ordering;
+
+// type Table = HashMap<String, Vec<String>>;
 
 fn main() {
     println!("Hello, world!");
+
+    const THE_USUAL: WeatherReport = WeatherReport::Sunny(72);
+
+    let report = get_weather(los_angeles).unwrap_or(THE_USUAL);
+
+    display_weather(los_angeles, &report);
+
+    // match get_weather(hometown) {
+    //     Ok(report) => {
+    //         display_weather(hometown, &report);
+    //     }
+    //     Err(err) => {
+    //         println!("error querying the weather: {}", err);
+    //         schedule_weatcher_retry();
+    //     }
+    // }
+
+    // let is_even = |x| x % 2 == 0;
+
+    // let is_even = |x: u64| -> bool { x % 2 == 0 };
+    // assert_eq!(is_even(14), true);
+
+    // let x = 17;
+    // let index = x as usize;
+    // println!("{}", index);
+
+    // let padovan: Vec<u64> = compute_padovan_sequence(n);
+    // for elem in &padovan {
+    //     draw_triangle(turtle, *elem);
+    // }
+
+    // fn quicksort<T: Ord>(slice: &mut [T]) {
+    //     if slice.len() <= 1 {
+    //         return;
+    //     }
+    //     let pivot_index = partition(slice);
+    //     quicksort(&mut slice[.. pivot_index]);
+    //     quicksort(&mut slice[pivot_index + 1 ..]);
+    // }
+
+    // return Vec::with_capacity(10);
+
+    // let ramp: Vec<i32> = (0 .. n).collect();
+
+    // return Vec::<i32>::with_capacity(1000);
+
+    // let ramp = (0 .. n).collect::<Vec<i32>>();
+
+    // server
+    //     .bind("127.0.0.1").expect("error binding server to address")
+    //     .run().expect("error running server");
+
+    // let mut numbers = Vec::new();
+
+    // fn serve_forever(socket: ServerSocket, handler: ServerHandler) -> ! {
+    //     socket.listen();
+    //     loop {
+    //         let s = socket.accept();
+    //         handler.handle(s);
+    //     }
+    // }
+
+    // fn wait_for_process(process: &mut Process) -> i32 {
+    //     while true {
+    //         if process.wait() {
+    //             return process.exit_code();
+    //         }
+    //     }
+    // }
+
+    // let output = match File::create(filename) {
+    //     Ok(f) => f,
+    //     Err(err) => return Err(err)
+    // };
+
+    // fn f() {
+    //     return;
+    // }
+
+    // let output = File::create(filename)?;
+
+    // let sqrt = 'outer: loop {
+    //     let n = next_number();
+    //     for i in 1.. {
+    //         let square = i * i;
+    //         if square == n {
+    //             break 'outer i;
+    //         }
+    //         if square > n {
+    //             break;
+    //         }
+    //     }
+    // };
+
+    // 'search:
+    // for room in apartment {
+    //     for spot in room.hiding_spots() {
+    //         if spot.contains(keys) {
+    //             println!("Your keys are {} in the {}", spot, room);
+    //             break 'search;
+    //         }
+    //     }
+    // }
+
+    // for line in input_lines {
+    //     let trimmed = trim_comments_and_whitespace(line);
+    //     let trimmed.is_empty() {
+    //         continue;
+    //     }
+    // }
+
+    // let answer = loop {
+    //     if let Some(line) = next_line() {
+    //         if line.starts_with("answer: ") {
+    //             break line;
+    //         }
+    //     } else {
+    //         break "answer: nothing";
+    //     }
+    // };
+
+    // while condition {
+    //     block
+    // }
+
+    // while let pattern = expr {
+    //     block
+    // }
+
+    // loop {
+    //     block
+    // }
+
+    // for pattern in iterable {
+    //     block
+    // }
+
+    // if let Some(cookie) = request.session_cookie {
+    //     return restore_session(cookie);
+    // }
+
+    // if let Err(err) = show_cheesy_anti_robot_task() {
+    //     log_robot_attempt(err);
+    //     politely_accuse_user_of_being_a_robot();
+    // } else {
+    //     session.mark_as_human();
+    // }
+
+    // if let pattern = expr {
+    //     block1
+    // } else {
+    //     block2
+    // }
+
+    // struct CardObj {
+    //     rank: String
+    // }
+
+    // let card = CardObj {
+    //     rank: "Jack".to_string(),
+    // };
+    // let score = match card.rank {
+    //     Jack => 10,
+    //     Queen => 10,
+    //     Ace => 11
+    // };
+
+    // let code: i32 = 6;
+    // match code {
+    //     0 => println!("OK"),
+    //     1 => println!("Wires Tangled"),
+    //     2 => println!("User Asleep"),
+    //     _ => println!("Unrecognized Error {}", code)
+    // }
+
+    // match parmas.get("name") {
+    //     Some(name) => println!("Hello, {}!", name),
+    //     None => println!("Greetings, stranger.")
+    // }
+
+    // if condition1 {
+    //     block1
+    // } else if condition2 {
+    //     block2
+    // } else {
+    //     block_n
+    // }
+
+    // fn show_files() -> io::Result<()> {
+    //     let mut v = vec![];
+    //     fn cmp_by_timestamp_then_name(a: &FileInfo, b: &FileInfo) -> Ordering {
+    //         a.timestamp.cmp(&b.timestamp)
+    //             .reverse()
+    //             .then(a.path.cmp(&b.path))
+    //     }
+    //     v.sort_by(cmp_by_timestamp_then_name)
+    // }
 
     // assert_eq!(2_u16.pow(4), 16); // 求幂
     // assert_eq!((-4_i32).abs(), 4); // 求绝对值
@@ -218,17 +421,43 @@ fn main() {
     // assert_eq!(first_name, Some("Palestrina".to_string()));
     // assert_eq!(composers[0].name, None);
 
-    #[derive(Copy, Clone)]
-    struct Label { number: u32 }
+    // #[derive(Copy, Clone)]
+    // struct Label { number: u32 }
 
-    fn print(l: Label) { println!("STAMP: {}", l.number); }
+    // fn print(l: Label) { println!("STAMP: {}", l.number); }
 
-    let l = Label { number: 3 };
+    // let l = Label { number: 3 };
 
-    print(l);
+    // print(l);
 
-    println!("My label number is: {}", l.number);
+    // println!("My label number is: {}", l.number);
+
+    // --- 第五章 引用 ---
+
+    // let mut table = Table::new();
+
+    // table.insert("Gesualdo".to_string(),
+    //                 vec!["many madrigals".to_string(),
+    //                      "Tenebrae Responsoria".to_string()]);
+    // table.insert("Caravaggio".to_string(),
+    //                 vec!["The Musicians".to_string(),
+    //                      "The Calling of St. Matthew".to_string()]);
+    // table.insert("Cellini".to_string(),
+    //                 vec!["Perseus with the head of Medusa".to_string(),
+    //                      "a salt cellar".to_string()]);
+    // // show(&table);
+
+    // show(&table);
 }
+
+// fn show(table: Table) {
+//     for (artist, works) in table {
+//         println!("works by {}:", artist);
+//         for work in works {
+//             println!("  {}", work);
+//         }
+//     }
+// }
 
 // fn build_vector() -> Vec<i16> {
 //     let mut v = Vec::new();
